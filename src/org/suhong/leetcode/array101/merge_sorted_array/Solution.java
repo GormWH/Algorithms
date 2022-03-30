@@ -1,4 +1,4 @@
-package org.suhong.leetcode.array101.mergesortedarray;
+package org.suhong.leetcode.array101.merge_sorted_array;
 
 import java.util.Arrays;
 

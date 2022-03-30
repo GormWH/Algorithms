@@ -1,4 +1,4 @@
-package org.suhong.leetcode.array101.validmountainarray;
+package org.suhong.leetcode.array101.valid_mountain_array;
 
 public class Solution1 {
     public boolean validMountainArray(int[] arr) {

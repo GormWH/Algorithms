@@ -1,4 +1,4 @@
-package org.suhong.leetcode.array101.checkifnanditsdoubleexist;
+package org.suhong.leetcode.array101.check_if_n_and_its_double_exist;
 
 // 2022.03.26
 // Brute force

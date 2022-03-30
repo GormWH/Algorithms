@@ -1,4 +1,4 @@
-package org.suhong.leetcode.array101.squaresofasortedarray;
+package org.suhong.leetcode.array101.squares_of_a_sorted_array;
 
 public class Solution {
     public int[] sortedSquares(int[] nums) {

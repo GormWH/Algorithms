@@ -1,8 +1,9 @@
-package org.suhong.leetcode.array101.replaceelementswithgreatestelementonrightside;
+package org.suhong.leetcode.array101.replace_elements_with_greatest_element_on_rightside;
 
 import java.util.Arrays;
 
 public class Solution {
+
     public int[] replaceElements(int[] arr) {
         int[] result = new int[arr.length];
         int greatest = -1;

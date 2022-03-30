@@ -1,4 +1,4 @@
-package org.suhong.leetcode.array101.duplicatezeros;
+package org.suhong.leetcode.array101.duplicate_zeros;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package org.suhong.leetcode.array101.findmaxconsecutiveones;
+package org.suhong.leetcode.array101.find_max_consecutive_ones;
 
 public class Solution {
     public int findMaxConsecutiveOnes(int[] nums) {

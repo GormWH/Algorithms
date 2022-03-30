@@ -1,4 +1,4 @@
-package org.suhong.leetcode.array101.removeelement;
+package org.suhong.leetcode.array101.remove_element;
 
 public class Solution {
     public int removeElement(int[] nums, int val) {
