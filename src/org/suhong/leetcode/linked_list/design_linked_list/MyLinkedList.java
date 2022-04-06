@@ -46,7 +46,10 @@ public class MyLinkedList {
     }
 
     public void deleteAtIndex(int index) {
+        Node current = this.head;
+        for (int i = 0; i < index; i++) {
 
+        }
     }
 }
 
