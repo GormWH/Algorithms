@@ -1,19 +1,17 @@
 package org.suhong.programmers.level1;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ReportBadUsers {
-    public int[] solution(String[] id_list, String[] report, int k) {
-        int[] answer = new int[id_list.length];
-        int[] numberOfReports = new int[id_list.length];
-        for (int i = 0; i < report.length; i++) {
-            String reportedUser = report[i].split(" ")[1];
-            for (int j = 0; j < id_list.length; j++) {
-                numberOfReports[j]++;
-            }
-        }
+    public int[] solution(String[] users, String[] reports, int k) {
+
+
         return answer;
     }
+
+    public
 
     public static void main(String[] args) {
         ReportBadUsers reportBadUsers = new ReportBadUsers();
