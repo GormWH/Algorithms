@@ -10,10 +10,20 @@ public class ReportBadUsers {
             userMap.put(user_id, new User(i, user_id));
         }
 
-        for (int i = 0; i < reports.length; i++) {
-            String[] report = reports[i].split(" ");
-
+        for (String report : reports) {
+            String[] currentReport = report.split(" ");
+            User reporter = userMap.get(currentReport[0]);
+            User badUser = userMap.get(currentReport[1]);
+            reporter.addReportedUsers(badUser);
         }
+
+        int[] result = new int[user_ids.length];
+        for (User user : userMap.values()) {
+            for (User badUser : user.reportedUsers) {
+                if (badUser.count >= k) result[user.index]++;
+            }
+        }
+        return result;
     }
 
     public static void main(String[] args) {
@@ -31,13 +41,19 @@ public class ReportBadUsers {
 class User {
     int index;
     String name;
-    List<User> reportedUsers;
+    Set<User> reportedUsers;
     int count;
 
     public User(int index, String name) {
         this.index = index;
         this.name = name;
-        this.reportedUsers = new ArrayList<>();
+        this.reportedUsers = new HashSet<>();
         this.count = 0;
+    }
+
+    public void addReportedUsers(User badUser) {
+        if (reportedUsers.contains(badUser)) return;
+        reportedUsers.add(badUser);
+        badUser.count++;
     }
 }
