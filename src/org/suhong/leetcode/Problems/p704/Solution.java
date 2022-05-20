@@ -11,16 +11,17 @@ public class Solution {
   }
 
   public int search(int[] nums, int target) {
-    // return searchRange(nums, target, 0, nums.length);
+//     return searchRange(nums, target, 0, nums.length);
     int start = 0, end = nums.length;
     int mid = (start + end) / 2;
     while (start < end) {
       int current = nums[mid];
-      if (target < current) {
-        end = mid;
-      } else if (current < target) {
+      if(current <target){
         start = mid + 1;
-      } else { // current == target
+      }
+      else if(current > target){
+        end = mid;
+      } else {
         return mid;
       }
       mid = (start + end) / 2;
@@ -73,3 +74,18 @@ public class Solution {
 // 64(=2^6) 7
 // N -> log_2(n) + 1
 // O(logN)
+
+//  int start = 0, end = nums.length;
+//  int mid = (start + end) / 2;
+//    while (start < end) {
+//        int current = nums[mid];
+//        if (target < current) {
+//        end = mid;
+//        } else if (current < target) {
+//        start = mid + 1;
+//        } else { // current == target
+//        return mid;
+//        }
+//        mid = (start + end) / 2;
+//        }
+//        return -1;
