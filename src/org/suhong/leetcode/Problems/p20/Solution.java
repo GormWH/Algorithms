@@ -9,27 +9,20 @@ class Solution {
     Stack<Character> parenthesisStack = new Stack<>();
     for (int i = 0; i < s.length(); i++) {
       char c = s.charAt(i);
-      if (isOpening(c)) {
+      if (c == '(' || c == '{' || c == '[') {
         parenthesisStack.push(c);
       } else {
-        if (parenthesisStack.size() == 0) {
+        if (parenthesisStack.empty() || Math.abs(parenthesisStack.peek() - c) >= 3) {
           return false;
         }
-        if (isPair(parenthesisStack.peek(), c)) {
-          parenthesisStack.pop();
-        } else {
-          return false;
-        }
+        parenthesisStack.pop();
       }
     }
-    return parenthesisStack.size() == 0;
+    return parenthesisStack.empty();
   }
 
   private boolean isOpening(char c) {
-    if (c == '(' || c == '{' || c == '[') {
-      return true;
-    }
-    return false;
+    return c == '(' || c == '{' || c == '[';
   }
 
   private boolean isPair(char opening, char closing) {
