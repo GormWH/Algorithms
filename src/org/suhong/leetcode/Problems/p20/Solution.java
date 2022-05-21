@@ -33,10 +33,7 @@ class Solution {
   }
 
   private boolean isPair(char opening, char closing) {
-    if (Math.abs(closing - opening) < 3) {
-      return true;
-    }
-    return false;
+    return Math.abs(closing - opening) < 3;
   }
 
   public static void main(String[] args) {
