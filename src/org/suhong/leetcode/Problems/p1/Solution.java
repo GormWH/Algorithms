@@ -3,18 +3,20 @@ package org.suhong.leetcode.Problems.p1;
 import java.util.Arrays;
 
 class Solution {
+  // brute force
   public int[] twoSum(int[] nums, int target) {
     int[] result = new int[2];
-    int i = 0, j = nums.length - 1;
-    while (i < j) {
-      int sum = i + j;
-      if (sum < target) {
-        i++;
-      } else if (sum > target) {
-        j--;
-      } else {
-        result[0] = i;
-        result[1] = j;
+    // x + y = target -> y = target - x
+    //
+    int length = nums.length;
+    for (int i = 0; i < length; i++) {
+      int first = nums[i];
+      for (int j = i + 1; j < length; j++) {
+        if (first + nums[j] == target) {
+          result[0] = i;
+          result[1] = j;
+          break;
+        }
       }
     }
     return result;
