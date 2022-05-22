@@ -1,13 +1,11 @@
 package org.suhong.leetcode.Problems.p1;
 
-import java.util.Arrays;
+import java.util.*;
 
 class Solution {
   // brute force
-  public int[] twoSum(int[] nums, int target) {
+  public int[] twoSum1(int[] nums, int target) {
     int[] result = new int[2];
-    // x + y = target -> y = target - x
-    //
     int length = nums.length;
     for (int i = 0; i < length; i++) {
       int first = nums[i];
@@ -22,10 +20,28 @@ class Solution {
     return result;
   }
 
+  // faster solution
+  public int[] twoSum2(int[] nums, int target) {
+    int[] result = new int[2];
+    Map<Integer, Integer> integerMap = new HashMap<>();
+    for (int i = 0; i < nums.length; i++) {
+      integerMap.put(target - nums[i], i);
+    }
+    for (int i = 0; i < nums.length; i++) {
+      Integer pairIndex = integerMap.get(nums[i]);
+      if (pairIndex != null && pairIndex != i) {
+        result[0] = i;
+        result[1] = integerMap.get(nums[i]);
+        break;
+      }
+    }
+    return result;
+  }
+
   public static void main(String[] args) {
-    int[] nums1 = {2,7,11,15};
-    int target1 = 9;
+    int[] nums1 = {3,2,4};
+    int target1 = 6;
     Solution s = new Solution();
-    System.out.println(Arrays.toString(s.twoSum(nums1, target1)));
+    System.out.println(Arrays.toString(s.twoSum2(nums1, target1)));
   }
 }
