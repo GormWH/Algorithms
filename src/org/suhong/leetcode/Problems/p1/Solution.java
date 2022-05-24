@@ -7,13 +7,14 @@ class Solution {
   public int[] twoSum1(int[] nums, int target) {
     int[] result = new int[2];
     int length = nums.length;
+    outer:
     for (int i = 0; i < length; i++) {
       int first = nums[i];
       for (int j = i + 1; j < length; j++) {
         if (first + nums[j] == target) {
           result[0] = i;
           result[1] = j;
-          break;
+          break outer;
         }
       }
     }
