@@ -18,7 +18,18 @@ class Solution {
   }
 
   public int romanToInt(String s) {
-    int result = 0;
+    int result = romanMap.get(s.charAt(s.length()-1));
+    int prev = result;
+    for (int i = s.length() - 2; i >= 0; i--) {
+      int current = romanMap.get(s.charAt(i));
+      if (current < prev) {
+        result -= current;
+      } else {
+        result += current;
+      }
+      prev = current;
+    }
+
     return result;
   }
 
