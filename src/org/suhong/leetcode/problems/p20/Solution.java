@@ -1,6 +1,5 @@
-package org.suhong.leetcode.Problems.p20;
+package org.suhong.leetcode.problems.p20;
 
-import java.util.List;
 import java.util.Stack;
 
 // https://leetcode.com/problems/valid-parentheses/

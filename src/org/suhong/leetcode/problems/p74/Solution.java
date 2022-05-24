@@ -1,6 +1,4 @@
-package org.suhong.leetcode.Problems.p74;
-
-import java.util.Arrays;
+package org.suhong.leetcode.problems.p74;
 
 // https://leetcode.com/problems/search-a-2d-matrix/
 class Solution {

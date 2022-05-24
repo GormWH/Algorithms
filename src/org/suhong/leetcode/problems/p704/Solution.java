@@ -1,4 +1,4 @@
-package org.suhong.leetcode.Problems.p704;
+package org.suhong.leetcode.problems.p704;
 
 // https://leetcode.com/problems/binary-search/
 public class Solution {

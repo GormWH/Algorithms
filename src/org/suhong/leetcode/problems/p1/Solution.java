@@ -1,4 +1,4 @@
-package org.suhong.leetcode.Problems.p1;
+package org.suhong.leetcode.problems.p1;
 
 import java.util.*;
 

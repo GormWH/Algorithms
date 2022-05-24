@@ -1,6 +1,4 @@
-package org.suhong.leetcode.Problems.p401;
-
-import java.util.List;
+package org.suhong.leetcode.problems.p401;
 
 class Solution {
 //  public List<String> readBinaryWatch(int turnedOn) {

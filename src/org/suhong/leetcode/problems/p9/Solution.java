@@ -1,7 +1,7 @@
-package org.suhong.leetcode.Problems.p9;
+package org.suhong.leetcode.problems.p9;
 
 // https://leetcode.com/problems/palindrome-number/
-public class Solution {
+class Solution {
 
   // with string
   public boolean isPalindrome1(int x) {

@@ -1,4 +1,4 @@
-package org.suhong.leetcode.Problems.p2;
+package org.suhong.leetcode.problems.p2;
 
 // https://leetcode.com/problems/add-two-numbers/submissions/
 /**

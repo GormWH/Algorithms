@@ -1,4 +1,4 @@
-package org.suhong.leetcode.Problems.p474;
+package org.suhong.leetcode.problems.p474;
 
 // https://leetcode.com/problems/ones-and-zeroes/
 class Solution {
