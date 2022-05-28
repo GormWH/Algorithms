@@ -1,7 +1,7 @@
 package org.suhong.leetcode.problems.p704;
 
 // https://leetcode.com/problems/binary-search/
-public class Solution {
+class Solution {
 
   public int searchBrute(int[] nums, int target) {
     for (int i = 0; i < nums.length; i++) {
