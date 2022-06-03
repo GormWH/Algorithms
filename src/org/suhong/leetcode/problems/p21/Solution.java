@@ -13,7 +13,7 @@ package org.suhong.leetcode.problems.p21;
 class Solution {
 
     // initial solution
-    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+    public ListNode mergeTwoLists1(ListNode list1, ListNode list2) {
         if (list1 == null && list2 == null) {
             return null;
         }
@@ -37,6 +37,11 @@ class Solution {
             }
         }
         return result.next;
+    }
+
+    // solution with no extra space
+    public ListNode mergeTwoLists1(ListNode list1, ListNode list2) {
+
     }
 
     public static void main(String[] args) {
