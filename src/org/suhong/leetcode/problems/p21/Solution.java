@@ -11,53 +11,32 @@ package org.suhong.leetcode.problems.p21;
  * }
  */
 class Solution {
+
+    // initial solution
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        if (list1 == null && list2 == null) {
+            return null;
+        }
         ListNode result = new ListNode();
         ListNode current = result;
-        ListNode left = list1;
-        ListNode right = list2;
-        if (left == null && right == null) {
-            return result;
-        }
-        if (left == null) {
-            current.val = right.val;
-            right = right.next;
-        } else if (right == null){
-            current.val = left.val;
-            left = left.next;
-        } else {
-            if (left.val < right.val) {
-                current.val = left.val;
-                left = left.next;
-            } else {
-                current.val = right.val;
-                right = right.next;
-            }
-        }
-        while (true) {
-
-            if (left == null && right == null) {
-                break;
-            }
+        while (list1 != null || list2 != null) {
             current.next = new ListNode();
             current = current.next;
-            if (left == null) {
-                current.val = right.val;
-                right = right.next;
-            } else if (right == null){
-                current.val = left.val;
-                left = left.next;
+            if (list1 == null) {
+                current.val = list2.val;
+                list2 = list2.next;
+            } else if (list2 == null) {
+                current.val = list1.val;
+                list1 = list1.next;
+            } else if (list1.val < list2.val) {
+                current.val = list1.val;
+                list1 = list1.next;
             } else {
-                if (left.val < right.val) {
-                    current.val = left.val;
-                    left = left.next;
-                } else {
-                    current.val = right.val;
-                    right = right.next;
-                }
+                current.val = list2.val;
+                list2 = list2.next;
             }
         }
-        return result;
+        return result.next;
     }
 
     public static void main(String[] args) {
