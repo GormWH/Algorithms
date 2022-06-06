@@ -32,7 +32,7 @@ class Solution {
 
     // O(log{m + n}) solution
     public double findMedianSortedArrays2(int[] nums1, int[] nums2) {
-        return 0.0;
+        return -1;
     }
 
     public static void main(String[] args) {
