@@ -3,7 +3,7 @@ package org.suhong.leetcode.problems.p179;
 import java.util.Arrays;
 
 // https://leetcode.com/problems/largest-number/
-public class Solution {
+class Solution {
 
     public String largestNumber(int[] nums) {
         int length = nums.length;

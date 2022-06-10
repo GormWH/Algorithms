@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 // https://leetcode.com/problems/assign-cookies/
-public class Solution {
+class Solution {
 
     public int findContentChildren(int[] g, int[] s) {
         if (s.length == 0) return 0;

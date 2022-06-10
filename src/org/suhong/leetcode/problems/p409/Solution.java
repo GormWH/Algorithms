@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 // https://leetcode.com/problems/longest-palindrome/
-public class Solution {
+class Solution {
 
     public int longestPalindrome(String s) {
         Map<Character, Integer> letterCountMap = new HashMap<>();
