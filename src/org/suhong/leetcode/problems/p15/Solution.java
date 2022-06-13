@@ -34,14 +34,71 @@ class Solution {
         return result;
     }
 
+    // using two pointer
+    // https://www.code-recipe.com/post/three-sum
+    public List<List<Integer>> threeSum2(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
 
+        Arrays.sort(nums); // first, sort array(to avoid duplicates)
+        for (int i = 0; i < nums.length - 2; i ++) {
+            if( i > 0 && nums[i] == nums[i-1]) continue;
+            for (int j = i + 1, k = nums.length - 1; j < k;) {
+                int sum = nums[i] + nums[j] + nums[k];
+                if (sum < 0) {
+                    j++;
+                    while (j < k && nums[j-1] == nums[j]) {
+                        j++;
+                    }
+                } else if (sum > 0) {
+                    k--;
+                    while (j < k && nums[k] == nums[k+1]) {
+                        k--;
+                    }
+                } else {
+                    result.add(List.of(nums[i], nums[j], nums[k]));
+                    k--;
+                    while (j < k && nums[k] == nums[k+1]) {
+                        k--;
+                    }
+                }
+            }
+
+        }
+
+        return result;
+    }
+
+    // using hash map
+    public List<List<Integer>> threeSum3(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+
+        Arrays.sort(nums); // first, sort array(to avoid duplicates)
+        for (int i = 0; i < nums.length - 2; i++) {
+            if (i > 0 && nums[i - 1] == nums[i]) continue;
+            int target = - nums[i]; // a + b + c = 0 => b + c = -a = target
+            Map<Integer, Integer> map = new HashMap<>();
+            for (int j = i + 2; j < nums.length; j++) {
+                map.put(target - nums[j], j); // c = target - b
+            }
+
+            for (int j = i + 1; j < nums.length - 1; j++) {
+                if (j > i + 1 && nums[j - 1] == nums[j]) continue;
+                Integer searchResult = map.get(nums[j]);
+                if (searchResult != null && j < searchResult) {
+                    result.add(List.of(nums[i], nums[j], nums[searchResult]));
+                }
+            }
+        }
+
+        return result;
+    }
     public static void main(String[] args) {
         Solution s = new Solution();
         int[] nums1 = {-1,0,1,2,-1,-4};
         int[] nums2 = {};
         int[] nums3 = {0};
         System.out.println("nums1=====================");
-        s.threeSum(nums1).forEach(list -> {
+        s.threeSum3(nums1).forEach(list -> {
             System.out.println(list.toString());
         });
         System.out.println("nums2=====================");
