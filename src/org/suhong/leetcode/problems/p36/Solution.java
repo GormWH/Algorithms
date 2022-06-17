@@ -28,6 +28,11 @@ class Solution {
     private boolean isDigit(char c) {
         return 49 <= c && c <=57; // '1' <= c <= '9'
     }
+
+    private boolean checkBoxes(char[][] board) {
+
+        return true;
+    }
     /*
     i = 0 => 0,0
     i = 1 => 0,3
