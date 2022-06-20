@@ -1,5 +1,6 @@
 package org.suhong.leetcode.problems.p50;
 
+// https://leetcode.com/problems/powx-n/
 public class Solution {
 
     public double myPow(double x, int n) {
@@ -9,13 +10,24 @@ public class Solution {
             n = -n;
         }
 
-        double result = 1;
-        while (n > 0) {
-            result *= x;
-            n--;
-        }
+        double result = customPow(x, n);
+
 
         return result;
+    }
+
+    private double customPow(double x, int n) {
+        if (n == 0) {
+            return 1;
+        } else if (n == 1) {
+            return x;
+        }
+        double num = customPow(x, n / 2);
+        if (n % 2 == 0) {
+            return num * num;
+        } else {
+            return num * num * x;
+        }
     }
 
     public static void main(String[] args) {
