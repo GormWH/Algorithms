@@ -16,7 +16,7 @@ class Solution {
             head = head.next;
         }
 
-        return result.next;
+        return result.next; // 결과값 반환할 때는 더미 뺴고 반환
     }
 
     public static void main(String[] args) {
