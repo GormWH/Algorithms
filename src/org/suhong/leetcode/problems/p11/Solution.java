@@ -2,6 +2,7 @@ package org.suhong.leetcode.problems.p11;
 
 // https://leetcode.com/problems/container-with-most-water/
 class Solution {
+
     // brute force
     public int maxArea(int[] height) {
         int maxArea = 0;
@@ -80,6 +81,24 @@ class Solution {
         return maxArea;
     }
 
+    // https://www.code-recipe.com/post/container-with-most-water
+    public int maxArea3(int[] height) {
+
+        int maxArea = 0;
+        for (int i = 0, j = height.length - 1; i < j;) {
+            int left = height[i];
+            int right = height[j];
+            int area = (j - i) * Math.min(left, right);
+            if (area > maxArea) maxArea = area;
+            if (left < right) {
+                i++;
+            } else {
+                j--;
+            }
+        }
+        return maxArea;
+    }
+
     public static void main(String[] args) {
         Solution s = new Solution();
 
@@ -87,8 +106,8 @@ class Solution {
         int[] nums2 = {1,1};
         int[] nums3 = {2,3,4,5,18,17,6};
 
-        System.out.println(s.maxArea2(nums1)); // 49
-        System.out.println(s.maxArea2(nums2)); // 1
-        System.out.println(s.maxArea2(nums3)); // 17
+        System.out.println(s.maxArea3(nums1)); // 49
+        System.out.println(s.maxArea3(nums2)); // 1
+        System.out.println(s.maxArea3(nums3)); // 17
     }
 }
