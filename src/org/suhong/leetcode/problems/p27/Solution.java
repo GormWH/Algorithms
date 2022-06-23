@@ -19,11 +19,15 @@ public class Solution {
         Solution s = new Solution();
         int[] nums1 = {3,2,2,3};
         int[] nums2 = {0,1,2,2,3,0,4,2};
+        int[] nums3 = {1,1,1,1,1,1,1,1,1,1,2};
 
         System.out.println(s.removeElement(nums1, 3)); // 2
         System.out.println(Arrays.toString(nums1)); // [2, 2, _, _]
         System.out.println(s.removeElement(nums2, 2)); // 5
         System.out.println(Arrays.toString(nums2)); // [0,1,3,0,4,_,_,_]
+        System.out.println(s.removeElement(nums3, 1));
+        System.out.println(Arrays.toString(nums3)); // [2,_,_,_, ....]
+
 
     }
 }
