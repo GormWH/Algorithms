@@ -1,25 +1,36 @@
 package org.suhong.leetcode.problems.p16;
 
-import java.util.Arrays;
+import java.util.*;
 
 class Solution {
     public int threeSumClosest(int[] nums, int target) {
         Arrays.sort(nums);
-        Integer closest = nums[0] + nums[1] + nums[2];
+        int closest = nums[0] + nums[1] + nums[2];
+        int closestGap = Integer.MAX_VALUE;
         for (int i = 0; i < nums.length; i++) {
-            int first = nums[i];
-            for (int j = i + 1; j < nums.length-1; j++) {
-                int twoSum = first + nums[j];
-                int k = binarySearchClosest(nums, j+1, nums.length, target - twoSum);
-                int threeSum = twoSum + nums[k];
-                if (threeSum == target) return target;
-                if (Math.abs(closest - target) > Math.abs(threeSum - target)) {
-                    closest = threeSum;
+            if( i > 0 && nums[i] == nums[i-1]) continue;
+//            int first = nums[i];
+            for (int j = i + 1, k = nums.length - 1; j < k;) {
+                int sum = nums[i] + nums[j] + nums[k];
+                if (sum < target) {
+                    j++;
+                    while (j < k && nums[j-1] == nums[j]) {
+                        j++;
+                    }
+                } else if (sum > target) {
+                    k--;
+                    while (j < k && nums[k] == nums[k+1]) {
+                        k--;
+                    }
+                } else {
+                    return sum;
                 }
-                if (k == nums.length-1 && threeSum - target > 0) break;
+                if (closestGap > Math.abs(sum - target)) {
+                    closest = sum;
+                    closestGap = Math.abs(sum - target);
+                }
             }
         }
-
         return closest;
     }
 
