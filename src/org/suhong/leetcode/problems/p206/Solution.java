@@ -4,25 +4,31 @@ import java.util.Stack;
 
 class Solution {
     public ListNode reverseList(ListNode head) {
+        if (head == null) return head;
         ListNode[] result = new ListNode[2];
-        return addListNode(result, head)[0];
+        return reverseListRecursive(result, head)[0];
     }
 
-    private ListNode[] addListNode(ListNode[] startEnd, ListNode listNode) {
+    private ListNode[] reverseListRecursive(ListNode[] headAndTail, ListNode listNode) {
         if (listNode.next == null) {
-            startEnd[0] = new ListNode(listNode.val);
-            startEnd[1] = startEnd[0];
-            return startEnd;
+            headAndTail[0] = listNode;
+            headAndTail[1] = listNode;
+            return headAndTail;
         }
-
-        startEnd[1].next = new ListNode(listNode.val);
-        startEnd[1] = startEnd[1].next;
-        return addListNode(startEnd, listNode.next);
+        headAndTail = reverseListRecursive(headAndTail, listNode.next);
+        headAndTail[1].next = new ListNode(listNode.val);
+        headAndTail[1] = headAndTail[1].next;
+        return headAndTail;
     }
+
 
     public static void main(String[] args) {
+        Solution s = new Solution();
+
         ListNode listNode1 = new ListNode(new int[]{1,2,3,4,5});
         printListNode(listNode1, "listNode1");
+        ListNode result1 = s.reverseList(listNode1);
+        printListNode(result1, "result1");
     }
 
     public static void printListNode(ListNode head, String name) {
