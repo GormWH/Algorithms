@@ -9,17 +9,43 @@ class Solution {
         return reverseListRecursive(result, head)[0];
     }
 
-    private ListNode[] reverseListRecursive(ListNode[] headAndTail, ListNode listNode) {
-        if (listNode.next == null) {
-            headAndTail[0] = listNode;
-            headAndTail[1] = listNode;
-            return headAndTail;
+    private ListNode[] reverseListRecursive(ListNode[] headTail, ListNode current) {
+        if (current.next == null) {
+            headTail[0] = current;
+            headTail[1] = current;
+            return headTail;
         }
-        headAndTail = reverseListRecursive(headAndTail, listNode.next);
-        headAndTail[1].next = new ListNode(listNode.val);
-        headAndTail[1] = headAndTail[1].next;
-        return headAndTail;
+        headTail = reverseListRecursive(headTail, current.next);
+        headTail[1].next = new ListNode(current.val);
+        headTail[1] =  headTail[1].next;
+        return headTail;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    private ListNode[] reverseListRecursive(ListNode[] headAndTail, ListNode listNode) {
+//        if (listNode.next == null) {
+//            headAndTail[0] = listNode;
+//            headAndTail[1] = listNode;
+//            return headAndTail;
+//        }
+//        headAndTail = reverseListRecursive(headAndTail, listNode.next);
+//        headAndTail[1].next = new ListNode(listNode.val);
+//        headAndTail[1] = headAndTail[1].next;
+//        return headAndTail;
+//    }
 
 
     public static void main(String[] args) {
