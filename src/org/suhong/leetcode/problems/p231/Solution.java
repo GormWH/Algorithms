@@ -1,6 +1,10 @@
 package org.suhong.leetcode.problems.p231;
 
+import java.util.HashSet;
+import java.util.Set;
+
 class Solution {
+
     public boolean isPowerOfTwo(int n) {
         if (n <= 0) return false;
         return isPowerOfTwoRecursive(n);
