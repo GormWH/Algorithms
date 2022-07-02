@@ -8,8 +8,11 @@ class Solution {
     public static void main(String[] args) {
         Solution s = new Solution();
 
-        int[] num = {1,2,3};
+        int[] nums1 = {1,2,3};
+        int[] nums2 = {4,3,2,1};
 
+        System.out.println(s.plusOne(nums1));
+        System.out.println(s.plusOne(nums2));
 
     }
 }
