@@ -19,11 +19,12 @@ class Solution {
             if (prev) {
                 sum += 1;
             }
-            prev = sum > 1;
             if (sum > 1) {
                 builder.append(sum - 2);
+                prev = true;
             } else {
                 builder.append(sum);
+                prev = false;
             }
         }
         if (prev) {
