@@ -21,4 +21,19 @@ class Solution {
     public boolean isSameTree(TreeNode p, TreeNode q) {
         return true;
     }
+
+    public static void main(String[] args) {
+        Solution s = new Solution();
+
+        TreeNode node1 = new TreeNode(1, new TreeNode(2), new TreeNode(3));
+        TreeNode node2 = new TreeNode(1, new TreeNode(2), new TreeNode(3));
+        TreeNode node3 = new TreeNode(1, new TreeNode(3), new TreeNode(2));
+
+        TreeNode node4 = new TreeNode(1, new TreeNode(1), null);
+        TreeNode node5 = new TreeNode(1, null, new TreeNode(1));
+
+        System.out.println(s.isSameTree(node1, node2)); // true
+        System.out.println(s.isSameTree(node1, node3)); // false
+        System.out.println(s.isSameTree(node4, node5)); // false
+    }
 }
