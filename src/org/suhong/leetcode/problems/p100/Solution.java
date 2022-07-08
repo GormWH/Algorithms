@@ -26,10 +26,6 @@ class Solution {
         return isSameTree(p.right, q.right);
     }
 
-    public boolean isSameTree2(TreeNode p, TreeNode q) {
-        return true;
-    }
-
     public static void main(String[] args) {
         Solution s = new Solution();
 
