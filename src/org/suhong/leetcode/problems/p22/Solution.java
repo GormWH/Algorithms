@@ -15,7 +15,8 @@ class Solution {
             result.add("()");
             return result;
         }
-
+        result.addAll(generateParenthesis(n - 1));
+        return result;
     }
 
     public static void main(String[] args) {
