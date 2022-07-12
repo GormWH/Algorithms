@@ -1,7 +1,7 @@
 package org.suhong.leetcode.problems.p50;
 
 // https://leetcode.com/problems/powx-n/
-public class Solution {
+class Solution {
 
     public double myPow(double x, int n) {
         if (x == 0.0) return 0;

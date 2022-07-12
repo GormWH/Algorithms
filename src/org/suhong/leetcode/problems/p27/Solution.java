@@ -2,7 +2,7 @@ package org.suhong.leetcode.problems.p27;
 
 import java.util.Arrays;
 
-public class Solution {
+class Solution {
 
     public int removeElement(int[] nums, int val) {
         int pointer = 0;

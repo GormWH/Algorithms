@@ -4,7 +4,7 @@ package org.suhong.leetcode.problems.p278;
       boolean isBadVersion(int version); */
 
 // https://leetcode.com/problems/first-bad-version/
-public class Solution extends VersionControl {
+class Solution extends VersionControl {
 
     public int firstBadVersion(int n) {
         int start = 1;
