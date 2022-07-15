@@ -1,5 +1,6 @@
 package org.suhong.leetcode.problems.p412;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,6 +21,24 @@ class Solution {
         }
 
         return Arrays.asList(array);
+    }
+
+    public List<String> fizzBuzz(int n) {
+        List<String> list = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            if (i % 15 == 14) {
+                list.add("FizzBuzz");
+            } else if (i % 3 == 2) {
+                list.add("Fizz");
+            } else if (i % 5 == 4) {
+                list.add("Buzz");
+            } else {
+                list.add(String.valueOf(i + 1));
+            }
+        }
+
+        return list;
     }
 
     public static void main(String[] args) {
