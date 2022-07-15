@@ -1,5 +1,7 @@
 package org.suhong.leetcode.problems.p1672;
 
+import java.util.Arrays;
+
 // https://leetcode.com/problems/richest-customer-wealth/
 class Solution {
     public int maximumWealth1(int[][] accounts) {
@@ -10,7 +12,7 @@ class Solution {
             for (int amount : customer) {
                 wealth += amount;
             }
-            if (wealth > max) max = wealth;
+            max = Math.max(max, wealth);
         }
 
         return max;
