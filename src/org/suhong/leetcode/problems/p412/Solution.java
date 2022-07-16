@@ -24,17 +24,17 @@ class Solution {
     }
 
     public List<String> fizzBuzz(int n) {
-        List<String> list = new ArrayList<>();
+        List<String> list = new ArrayList<>(n);
 
-        for (int i = 0; i < n; i++) {
-            if (i % 15 == 14) {
+        for (int i = 1; i <= n; i++) {
+            if (i % 15 == 0) {
                 list.add("FizzBuzz");
-            } else if (i % 3 == 2) {
+            } else if (i % 3 == 0) {
                 list.add("Fizz");
-            } else if (i % 5 == 4) {
+            } else if (i % 5 == 0) {
                 list.add("Buzz");
             } else {
-                list.add(String.valueOf(i + 1));
+                list.add(String.valueOf(i));
             }
         }
 
