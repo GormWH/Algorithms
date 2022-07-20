@@ -1,4 +1,4 @@
-package org.suhong.leetcode.array101.remove_element;
+package org.suhong.leetcode.explore.arrays101.remove_element;
 
 // 2022.04.02
 // remove elements (in-place operation)

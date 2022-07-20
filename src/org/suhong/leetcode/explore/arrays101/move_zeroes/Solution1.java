@@ -1,6 +1,4 @@
-package org.suhong.leetcode.array101.move_zeroes;
-
-import org.suhong.programmers.sort.biggestnum.Solution;
+package org.suhong.leetcode.explore.arrays101.move_zeroes;
 
 import java.util.Arrays;
 

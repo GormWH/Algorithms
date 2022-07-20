@@ -1,4 +1,4 @@
-package org.suhong.leetcode.array101.find_numbers_with_even_number_of_digits;
+package org.suhong.leetcode.explore.arrays101.find_numbers_with_even_number_of_digits;
 
 class Solution {
     public int findNumbers(int[] nums) {

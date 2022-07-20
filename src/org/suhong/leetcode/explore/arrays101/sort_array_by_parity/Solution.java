@@ -1,4 +1,4 @@
-package org.suhong.leetcode.array101.sort_array_by_parity;
+package org.suhong.leetcode.explore.arrays101.sort_array_by_parity;
 
 import java.util.Arrays;
 

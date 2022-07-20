@@ -1,4 +1,4 @@
-package org.suhong.leetcode.array101.replace_elements_with_greatest_element_on_rightside;
+package org.suhong.leetcode.explore.arrays101.replace_elements_with_greatest_element_on_rightside;
 
 import java.util.Arrays;
 

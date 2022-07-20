@@ -1,4 +1,4 @@
-package org.suhong.leetcode.array101.remove_duplicates_from_sorted_array;
+package org.suhong.leetcode.explore.arrays101.remove_duplicates_from_sorted_array;
 
 import java.util.Arrays;
 

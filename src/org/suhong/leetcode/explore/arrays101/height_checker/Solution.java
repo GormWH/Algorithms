@@ -1,4 +1,4 @@
-package org.suhong.leetcode.array101.height_checker;
+package org.suhong.leetcode.explore.arrays101.height_checker;
 
 import java.util.Arrays;
 
