@@ -1,7 +1,21 @@
-package org.suhong.leetcode.explore.arrays101.find_numbers_with_even_number_of_digits;
+package org.suhong.leetcode.explore.arrays101._1_introduction.FindNumbersWithEvenNumberOfDigits;
 
 class Solution {
+
+    // last solution
     public int findNumbers(int[] nums) {
+        int count = 0;
+        for (int num: nums) {
+            while (num > 99) {
+                num = num / 100;
+            }
+            if (num > 9) {
+                count++;
+            }
+        }
+        return count;
+    }
+    public int findNumbers1(int[] nums) {
         int result = 0;
         for (int num : nums) {
             if (isEvenDigits(num)) result++;
