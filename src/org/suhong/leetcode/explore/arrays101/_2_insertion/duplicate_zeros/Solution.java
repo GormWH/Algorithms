@@ -3,21 +3,59 @@ package org.suhong.leetcode.explore.arrays101._2_insertion.duplicate_zeros;
 import java.util.Arrays;
 
 class Solution {
-    public void duplicateZeros(int[] arr) {
-        int countZero = 0;
-        for (int i = 0; i < arr.length - countZero; i++) {
-            if (arr[i] == 0) countZero++;
+    // brute force
+    public void duplicateZeros1(int[] arr) {
+        int[] result = new int[arr.length];
+
+        int writer = 0;
+        for (int i = 0; writer < arr.length; i++) {
+            int num = arr[i];
+            if (num == 0) {
+                result[writer++] = 0;
+                if (writer < arr.length) {
+                    result[writer++] = 0;
+                }
+            } else {
+                result[writer++] = num;
+            }
         }
-        System.out.printf("num of zeros: %d\n",countZero);
-        int writer = arr.length - 1;
-        boolean isAmbiguous = (arr.length - countZero * 2) % 2 != 0;
-        for (int i = arr.length - countZero - 1; i >= 0; i--) {
+
+        System.arraycopy(result, 0, arr, 0, arr.length);
+    }
+
+    public void duplicateZeros(int[] arr) {
+        int writer = 0;
+
+        int i = 0;
+        for (; writer < arr.length; i++) {
+            if (arr[i] == 0) {
+                writer += 2;
+            } else {
+                writer += 1;
+            }
+        }
+
+        boolean wasAmbiguous = false;
+        if (writer == arr.length + 1) {
+            writer -= 3;
+            i -= 2;
+            wasAmbiguous = true;
+        } else {
+            writer -= 1;
+            i--;
+        }
+
+        for (; i >= 0; i--) {
             if (arr[i] == 0) {
                 arr[writer--] = 0;
                 arr[writer--] = 0;
             } else {
                 arr[writer--] = arr[i];
             }
+        }
+
+        if (wasAmbiguous) {
+            arr[arr.length - 1] = 0;
         }
     }
 
