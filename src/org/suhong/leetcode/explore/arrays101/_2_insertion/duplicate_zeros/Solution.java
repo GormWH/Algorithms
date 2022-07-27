@@ -57,6 +57,7 @@ class Solution {
         if (wasAmbiguous) {
             arr[arr.length - 1] = 0;
         }
+        // 더 좋은 방법을 찾아보자.. 이거 너무 복잡해!
     }
 
     public static void main(String[] args) {
