@@ -23,41 +23,30 @@ class Solution {
         System.arraycopy(result, 0, arr, 0, arr.length);
     }
 
+    // solution solution
     public void duplicateZeros(int[] arr) {
-        int writer = 0;
-
-        int i = 0;
-        for (; writer < arr.length; i++) {
+        int zeros = 0;
+        int length = arr.length - 1;
+        for (int i = 0; i <= length - zeros; i++) {
             if (arr[i] == 0) {
-                writer += 2;
-            } else {
-                writer += 1;
+                if (i == length - zeros) {
+                    arr[length] = 0;
+                    length--;
+                    break;
+                }
+                zeros++;
             }
         }
 
-        boolean wasAmbiguous = false;
-        if (writer == arr.length + 1) {
-            writer -= 3;
-            i -= 2;
-            wasAmbiguous = true;
-        } else {
-            writer -= 1;
-            i--;
-        }
-
-        for (; i >= 0; i--) {
+        for (int i = length - zeros; i >= 0; i--) {
             if (arr[i] == 0) {
-                arr[writer--] = 0;
-                arr[writer--] = 0;
+                arr[i + zeros--] = 0;
+                arr[i + zeros] = 0;
             } else {
-                arr[writer--] = arr[i];
+                arr[i + zeros] = arr[i];
             }
         }
 
-        if (wasAmbiguous) {
-            arr[arr.length - 1] = 0;
-        }
-        // 더 좋은 방법을 찾아보자.. 이거 너무 복잡해!
     }
 
     public static void main(String[] args) {
