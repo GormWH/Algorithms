@@ -2,7 +2,7 @@ package org.suhong.leetcode.explore.arrays101._3_deletion.remove_duplicates_from
 
 import java.util.Arrays;
 
-public class Solution {
+class Solution {
 
     public int removeDuplicates(int[] nums) {
 
