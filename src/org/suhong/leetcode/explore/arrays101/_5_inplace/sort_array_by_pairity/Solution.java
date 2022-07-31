@@ -14,8 +14,8 @@ class Solution {
                     right--;
                 } else {
                     int temp = nums[left];
-                    nums[left] = nums[right];
-                    nums[right] = temp;
+                    nums[left++] = nums[right];
+                    nums[right--] = temp;
                 }
             }
         }
