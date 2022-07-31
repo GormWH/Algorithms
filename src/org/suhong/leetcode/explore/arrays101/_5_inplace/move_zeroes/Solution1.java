@@ -1,4 +1,4 @@
-package org.suhong.leetcode.explore.arrays101._5_inplacesearch.move_zeroes;
+package org.suhong.leetcode.explore.arrays101._5_inplace.move_zeroes;
 
 import java.util.Arrays;
 
