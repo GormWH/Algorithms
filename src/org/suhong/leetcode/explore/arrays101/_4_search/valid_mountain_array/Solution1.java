@@ -1,33 +1,34 @@
 package org.suhong.leetcode.explore.arrays101._4_search.valid_mountain_array;
 
 public class Solution1 {
-    public boolean validMountainArray(int[] arr) {
-        int length = arr.length;
+    public boolean validMountainArray(int[] nums) {
+        int length = nums.length;
+        if (length < 3) return false;
 
+        // at least one step of uphill
+        if (nums[0] >= nums[1]) return false;
+
+        int prev = nums[1];
         int summit = -1;
-        int prevNum = -1;
-        for (int i = 0; i < length; i++) {
-            int current = arr[i];
-            if (prevNum >= current) {
+        // uphill
+        for (int i = 2; i < length; i++) {
+            if (nums[i] < prev) {
                 summit = i - 1;
                 break;
-            }
-            prevNum = current;
-        }
-
-        if (summit == 0) {
-            return false;
-        }
-
-        for (int i = summit + 1; i < length; i++) {
-            int current = arr[i];
-            if (prevNum <= current) {
+            } else if (nums[i] == prev) {
                 return false;
             }
-            prevNum = current;
+            prev = nums[i];
         }
 
-        return summit != -1;
+        // downhill
+        for (int i = summit + 1; i < length; i++) {
+            if (nums[i] >= prev) {
+                return false;
+            }
+            prev = nums[i];
+        }
+        return true;
     }
 
     public static void main(String[] args) {
