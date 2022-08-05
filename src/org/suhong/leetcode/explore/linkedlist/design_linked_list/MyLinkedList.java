@@ -31,6 +31,7 @@ class MyLinkedList {
             head = newHead;
         }
         size++;
+        // size--??;
     }
 
     public void addAtTail(int val) {
