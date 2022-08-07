@@ -1,4 +1,4 @@
-package org.suhong.leetcode.explore.linkedlist.design_linked_list;
+package org.suhong.leetcode.explore.linkedlist._1_singly_linked_list;
 
 class MyLinkedList {
 
