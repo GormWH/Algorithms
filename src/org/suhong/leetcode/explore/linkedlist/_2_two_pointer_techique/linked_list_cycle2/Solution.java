@@ -14,13 +14,25 @@ import org.suhong.leetcode.datastructure.ListNode;
  * }
  */
 
+// https://leetcode.com/problems/linked-list-cycle-ii/discuss/44781/Concise-O(n)-solution-by-using-C%2B%2B-with-Detailed-Alogrithm-Description
 public class Solution {
     public ListNode detectCycle(ListNode head) {
-        int oneTwo = 0;
-        int oneThree = 0;
-        ListNode one = head;
-        ListNode Two = head;
-        ListNode Three = head;
+        if (head == null) return null;
+        ListNode slow = head;
+        ListNode fast = head;
+        do {
+            slow = slow.next;
+            if (fast == null) return null;
+            fast = fast.next;
+            if (fast == null) return null;
+            fast = fast.next;
+        } while (slow != fast);
 
+        ListNode result = head;
+        while (result != slow) {
+            result = result.next;
+            slow = slow.next;
+        }
+        return result;
     }
 }
