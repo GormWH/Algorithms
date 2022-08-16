@@ -15,7 +15,7 @@ import org.suhong.leetcode.datastructure.ListNode;
  */
 
 // https://leetcode.com/problems/linked-list-cycle-ii/discuss/44781/Concise-O(n)-solution-by-using-C%2B%2B-with-Detailed-Alogrithm-Description
-public class Solution {
+class Solution {
     public ListNode detectCycle(ListNode head) {
         if (head == null) return null;
         ListNode slow = head;

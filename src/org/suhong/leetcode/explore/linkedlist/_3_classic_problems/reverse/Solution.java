@@ -2,7 +2,7 @@ package org.suhong.leetcode.explore.linkedlist._3_classic_problems.reverse;
 
 import org.suhong.leetcode.datastructure.ListNode;
 
-public class Solution {
+class Solution {
     public ListNode reverseList(ListNode head) {
         if (head == null) return null;
         ListNode temp = head.next;

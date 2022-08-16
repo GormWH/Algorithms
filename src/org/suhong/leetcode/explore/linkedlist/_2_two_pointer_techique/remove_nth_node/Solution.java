@@ -2,7 +2,7 @@ package org.suhong.leetcode.explore.linkedlist._2_two_pointer_techique.remove_nt
 
 import org.suhong.leetcode.datastructure.ListNode;
 
-public class Solution {
+class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         int size = 0;
         ListNode current = head;

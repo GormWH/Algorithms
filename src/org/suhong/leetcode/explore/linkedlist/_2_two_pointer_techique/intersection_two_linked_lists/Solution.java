@@ -2,7 +2,7 @@ package org.suhong.leetcode.explore.linkedlist._2_two_pointer_techique.intersect
 
 import org.suhong.leetcode.datastructure.ListNode;
 
-public class Solution {
+class Solution {
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         int lengthA = 1;
