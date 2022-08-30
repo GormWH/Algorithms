@@ -3,14 +3,19 @@ package org.suhong.leetcode.problems.p69;
 class Solution {
     // brute force
     public int mySqrt(int x) {
-        int max = Integer.MAX_VALUE / 2;
-        int answer = 0;
-        while (true) {
-            if (answer * answer > x || answer > max) {
-                return answer - 1;
+        int start = 0;
+        int end = x;
+        int result = 0;
+        while (start <= end) {
+            long mid = start + (end - start) / 2;
+            if (mid * mid <= x) {
+                result = (int) mid;
+                start = (int) mid + 1;
+            } else {
+                end = (int) mid - 1;
             }
-            answer++;
         }
+        return result;
     }
 
     public static void main(String[] args) {
