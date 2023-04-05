@@ -21,99 +21,94 @@ public class Mining {
     }
     public int solution(int[] picks, String[] minerals) {
         Miner miner = new Miner(picks);
-        Works[] workList = new Works[(minerals.length-1) / 5 + 1];
-        for (int i = 0; i < workList.length; ++i) {
-            workList[i] = new Works(minerals, i*5);
+        int pickNum = picks[0] + picks[1] + picks[2];
+
+        MineralHeap[] heaps = new MineralHeap[pickNum];
+        for (int i = 0; i < pickNum; ++i) {
+            heaps[i] = new MineralHeap(minerals,i*5);
         }
-        Arrays.sort(workList);
-        int sum = 0;
-        for (Works works: workList) {
-            // System.out.println(Arrays.toString(works.minerals));
-            sum += miner.mine(works);
+        Arrays.sort(heaps);
+
+        int answer = 0;
+        for (MineralHeap heap: heaps) {
+            answer += miner.mineMineralHeap(heap);
         }
-        return sum;
+        return answer;
     }
 }
 
 class Miner {
-    private int diamond;
-    private int iron;
-    private int stone;
+    int diamond;
+    int iron;
+    int stone;
 
     public Miner(int[] picks) {
-        this.diamond = picks[0];
-        this.iron = picks[1];
-        this.stone = picks[2];
+        diamond = picks[0];
+        iron = picks[1];
+        stone = picks[2];
     }
 
-    public int mine(Works works) {
-        int pick = getPick();
-        if (pick == 0) return 0; // 쓸 수 있는 곡굉이가 없어 ㅠㅠ
-
-        int sum = 0;
-        for (int i = 0; i < 5; ++i) {
-            int mineral = works.minerals[i];
-            if (mineral == 0) continue;
-            if (mineral <= pick) sum += 1;
-            else sum += mineral / pick;
+    public int mineMineralHeap(MineralHeap heap) {
+        char pick = getPick();
+        if (pick == 0) return 0;
+        int result = 0;
+        switch (pick) {
+            case 's':
+                result = heap.stone + heap.iron * 5 + heap.diamond * 25;
+                break;
+            case 'i':
+                result += heap.stone + heap.iron + heap.diamond * 5;
+                break;
+            case 'd':
+                result += heap.stone + heap.iron + heap.diamond;
         }
-        return sum;
+        return result;
     }
 
-    private int getPick() {
-        if (diamond != 0)
-        {
+    private char getPick() {
+        if (diamond != 0) {
             --diamond;
-            return 25;
-        }
-        else if (iron != 0)
-        {
+            return 'd';
+        } else if (iron != 0) {
             --iron;
-            return 5;
-        }
-        else if (stone != 0)
-        {
+            return 'i';
+        } else if (stone != 0) {
             --stone;
-            return 1;
-        }
-        else
-        {
+            return 's';
+        } else {
             return 0;
         }
     }
 }
 
-class Works implements Comparable<Works> {
-    int[] minerals;
-    private int total = 0;
-    private int max = 1;
+class MineralHeap implements Comparable<MineralHeap>{
+    int diamond;
+    int iron;
+    int stone;
 
-    public Works(String[] minerals, int start) {
-        this.minerals = new int[5];
+    public MineralHeap(String[] minerals, int start) {
+        diamond = 0;
+        iron = 0;
+        stone = 0;
         for (int i = start; i < start + 5 && i < minerals.length; ++i) {
-            char mineral = minerals[i].charAt(0);
-            if (mineral == 'd')
-            {
-                this.minerals[i%5] = 25;
-                this.total += 25;
-                if (max < 25) max = 25;
-            }
-            else if (mineral == 'i')
-            {
-                this.minerals[i%5] = 5;
-                this.total += 5;
-                if (max < 5) max = 5;
-            }
-            else // mineral == 's'
-            {
-                this.minerals[i%5] = 1;
-                this.total += 1;
+            switch (minerals[i].charAt(0)) {
+                case 'd':
+                    ++diamond;
+                    break;
+                case 'i':
+                    ++iron;
+                    break;
+                default:
+                    ++stone;
+                    break;
             }
         }
     }
 
     @Override
-    public int compareTo(Works o) {
-        return o.total - this.total;
+    public int compareTo(MineralHeap o) {
+        if (this.diamond != o.diamond) return o.diamond - this.diamond;
+        if (this.iron != o.iron) return o.iron - this.iron;
+        return o.stone - this.stone;
     }
 }
